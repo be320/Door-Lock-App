@@ -1,9 +1,14 @@
-import React from 'react';
-import Keypad from './src/modules/Keypad'
+import React,{useEffect} from 'react';
+import Keypad from './src/modules/Keypad';
+import firebase from 'firebase';
+import SplashScreen from 'react-native-splash-screen';
+
 const App = () => {
-  return (
-      <Keypad />
-  );
+  useEffect(() => {
+    SplashScreen.hide();
+  });
+
+  return <Keypad />;
 };
 
 export default App;
