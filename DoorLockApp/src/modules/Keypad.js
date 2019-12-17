@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -17,7 +17,7 @@ import FlashMessage, {
   showMessage,
   hideMessage,
 } from 'react-native-flash-message';
-import { db } from '../config';
+import {db} from '../config';
 
 const Keypad = props => {
   const [first, setFirst] = useState('_');
@@ -82,49 +82,49 @@ const Keypad = props => {
         duration: 1000,
       });
     } else {
+      let pass = first + second + third + fourth;
 
-     
-
-      //  db.ref('device/').push(
-      //   {
-      //     DeviceID:77,
-      //     Password:first + second + third + fourth
-      // } ).then((data)=>{
-      //   console.log(data)
-      // }).catch((error)=>{
-      //   console.log(error)
-      // })
-
-      db.ref('/device').orderByChild("DeviceID").equalTo(77).once('value').then(function(s)
-      {   
-        let items = Object.values(s.val());
-        let pass = first+second+third+fourth
-        items.map((item,index) =>{
-          
-          if(item.Password === pass)
-          {
-      showMessage({
-        message: "Door is Unlocked !",
-        type: "success",
-        titleStyle: styles.message,
-        icon:"success",
-      duration:1000
-      });
-          }
-          else
-          {
+      if (pass === '1998') {
+        db.ref('door/lock')
+          .set('1')
+          .then(data => {
             showMessage({
-              message: 'Wrong Password !',
-              type: 'danger',
+              message: 'Door is Unlocked !',
+              type: 'success',
               titleStyle: styles.message,
-              icon: 'danger',
+              icon: 'success',
               duration: 1000,
             });
-          }
-        })      
-      })
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      } else {
+        showMessage({
+          message: 'Wrong Password !',
+          type: 'danger',
+          titleStyle: styles.message,
+          icon: 'danger',
+          duration: 1000,
+        });
+      }
 
+      // db.ref('/device').orderByChild("DeviceID").equalTo(77).once('value').then(function(s)
+      // {
+      //   let items = Object.values(s.val());
 
+      //   items.map((item,index) =>{
+
+      //     if(item.Password === pass)
+      //     {
+
+      //     }
+      //     else
+      //     {
+
+      //     }
+      //   })
+      // })
       setFirst('_');
       setSecond('_');
       setThird('_');
