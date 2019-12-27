@@ -4,9 +4,9 @@
 #include <FirebaseArduino.h>
 
 // Set these to run example.
-#define FIREBASE_HOST "doorlock-61843.firebaseio.com"
-#define FIREBASE_AUTH "xh25VvnuAWMSBFcIeOQFQcgHsuv1jsQuPLx7O7NH"
-#define WIFI_SSID "BAHAA"
+#define FIREBASE_HOST "xxxxxx.firebaseio.com"
+#define FIREBASE_AUTH "mssjdbajdbaldnkklajdjlajd"
+#define WIFI_SSID "msalmfs"
 #define WIFI_PASSWORD "12345678"
 
 
