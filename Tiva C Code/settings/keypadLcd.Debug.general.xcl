@@ -1,0 +1,15 @@
+"D:\IAR\arm\bin\armproc.dll" 
+
+"D:\IAR\arm\bin\armlmiftdi.dll" 
+
+"D:\Semester 7\Micro\labs\KeypadLcd\Debug\Exe\keypadLcd.out" 
+
+--plugin="D:\IAR\arm\bin\armbat.dll" 
+
+--device_macro="D:\IAR\arm\config\debugger\TexasInstruments\TM4C123.dmac" 
+
+--flash_loader="D:\IAR\arm\config\flashloader\TexasInstruments\FlashTC4_H6_o.board" 
+
+
+
+

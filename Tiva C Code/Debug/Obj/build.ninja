@@ -1,0 +1,28 @@
+#Generating source browse information for project keypadLcd
+
+
+#Abbreviations
+cc = D$:\IAR\common\bin\SourceIndexer.exe
+ll = D$:\IAR\common\bin\PbdLink.exe
+bd = D$:\IAR\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build lcdKeypad.pbi : index lcdKeypad.xcl
+build main.pbi : index main.xcl
+build keypadLcd.pbd : link lcdKeypad.pbi main.pbi
+build keypadLcd.pbw : browsedata keypadLcd.pbd
+
+

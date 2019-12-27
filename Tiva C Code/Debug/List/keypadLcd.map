@@ -1,0 +1,225 @@
+###############################################################################
+#
+# IAR ELF Linker V8.40.1.212/W32 for ARM                  27/Dec/2019  18:28:05
+# Copyright 2007-2019 IAR Systems AB.
+#
+#    Output file  =  D:\Semester 7\Micro\labs\KeypadLcd\Debug\Exe\keypadLcd.out
+#    Map file     =
+#        D:\Semester 7\Micro\labs\KeypadLcd\Debug\List\keypadLcd.map
+#    Command line =
+#        -f C:\Users\ahmed\AppData\Local\Temp\EW730F.tmp ("D:\Semester
+#        7\Micro\labs\KeypadLcd\Debug\Obj\lcdKeypad.o" "D:\Semester
+#        7\Micro\labs\KeypadLcd\Debug\Obj\main.o" --no_out_extension -o
+#        "D:\Semester 7\Micro\labs\KeypadLcd\Debug\Exe\keypadLcd.out"
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map "D:\Semester 7\Micro\labs\KeypadLcd\Debug\List\keypadLcd.map"
+#        --config D:\IAR\arm\config\linker\TexasInstruments\TM4C123GH6.icf
+#        --semihosting --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0x40
+  .intvec            ro code          0x0    0x40  vector_table_M.o [4]
+                                   - 0x40    0x40
+
+"P1":                                       0x5d0
+  .text              ro code         0x40   0x424  lcdKeypad.o [1]
+  .text              ro code        0x464    0x56  ABImemcpy_unaligned.o [4]
+  .text              ro code        0x4ba    0x2e  copy_init3.o [4]
+  .text              ro code        0x4e8    0x40  main.o [1]
+  .text              ro code        0x528    0x28  data_init.o [4]
+  .text              ro code        0x550    0x22  fpinit_M.o [3]
+  .iar.init_table    const          0x574    0x14  - Linker created -
+  .text              ro code        0x588     0x2  vector_table_M.o [4]
+  Initializer bytes  const          0x58c    0x20  <for P2-1>
+  .text              ro code        0x5ac    0x1e  cmain.o [4]
+  .text              ro code        0x5ca     0x4  low_level_init.o [2]
+  .text              ro code        0x5ce     0x4  exit.o [2]
+  .text              ro code        0x5d4     0xa  cexit.o [4]
+  .text              ro code        0x5e0    0x14  exit.o [5]
+  .rodata            const          0x5f4    0x10  lcdKeypad.o [1]
+  .text              ro code        0x604     0xc  cstartup_M.o [4]
+  .rodata            const          0x610     0x0  copy_init3.o [4]
+                                  - 0x610   0x5d0
+
+"P2", part 1 of 2:                           0x20
+  P2-1                        0x2000'0000    0x20  <Init block>
+    .data            inited   0x2000'0000     0x4  lcdKeypad.o [1]
+    .data            inited   0x2000'0004     0x4  lcdKeypad.o [1]
+    .data            inited   0x2000'0008     0xc  lcdKeypad.o [1]
+    .data            inited   0x2000'0014     0x8  lcdKeypad.o [1]
+    .bss             inited   0x2000'001c     0x4  lcdKeypad.o [1]
+                            - 0x2000'0020    0x20
+
+"P2", part 2 of 2:                         0x1000
+  CSTACK                      0x2000'0020  0x1000  <Block>
+    CSTACK           uninit   0x2000'0020  0x1000  <Block tail>
+                            - 0x2000'1020  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x610     0x3'ffff  0x3'f9f0
+  0x2000'1020  0x2000'7fff    0x6fe0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x20:
+                0x58c  0x20
+    1 destination range, total size 0x20:
+          0x2000'0000  0x20
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+D:\Semester 7\Micro\labs\KeypadLcd\Debug\Obj: [1]
+    lcdKeypad.o              1'060       48       32
+    main.o                      64
+    ------------------------------------------------
+    Total:                   1'124       48       32
+
+dl7M_tln.a: [2]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+m7M_tls.a: [3]
+    fpinit_M.o                  34
+    ------------------------------------------------
+    Total:                      34
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o       86
+    cexit.o                     10
+    cmain.o                     30
+    copy_init3.o                46
+    cstartup_M.o                12
+    data_init.o                 40
+    vector_table_M.o            66
+    ------------------------------------------------
+    Total:                     290
+
+shb_l.a: [5]
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
+
+    Gaps                         4        2
+    Linker created                       22    4'096
+----------------------------------------------------
+    Grand Total:             1'480       72    4'128
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+.iar.init_table$$Base         0x574         --   Gb  - Linker created -
+.iar.init_table$$Limit        0x588         --   Gb  - Linker created -
+?main                         0x5ad        Code  Gb  cmain.o [4]
+CSTACK$$Base            0x2000'0020         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1020         --   Gb  - Linker created -
+LCD_command                    0xcb  0x36  Code  Gb  lcdKeypad.o [1]
+LCD_data                      0x101  0x24  Code  Gb  lcdKeypad.o [1]
+LCD_start                     0x125  0x40  Code  Gb  lcdKeypad.o [1]
+Region$$Table$$Base           0x574         --   Gb  - Linker created -
+Region$$Table$$Limit          0x588         --   Gb  - Linker created -
+Unlock                        0x369  0x28  Code  Gb  lcdKeypad.o [1]
+__cmain                       0x5ad        Code  Gb  cmain.o [4]
+__exit                        0x5e1  0x14  Code  Gb  exit.o [5]
+__iar_copy_init3              0x4bb  0x2e  Code  Gb  copy_init3.o [4]
+__iar_data_init3              0x529  0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x551        Code  Gb  fpinit_M.o [3]
+__iar_program_start           0x605        Code  Gb  cstartup_M.o [4]
+__iar_unaligned_memcpy4
+                              0x465        Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned_memcpy8
+                              0x465        Code  Gb  ABImemcpy_unaligned.o [4]
+__low_level_init              0x5cb   0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0        Data  Gb  vector_table_M.o [4]
+_call_main                    0x5b9        Code  Gb  cmain.o [4]
+_exit                         0x5d5        Code  Gb  cexit.o [4]
+_main                         0x5c7        Code  Gb  cmain.o [4]
+blink                          0x9b  0x30  Code  Gb  lcdKeypad.o [1]
+checkPressed                  0x227  0x1a  Code  Gb  lcdKeypad.o [1]
+checkpass                     0x34b  0x1e  Code  Gb  lcdKeypad.o [1]
+clear                          0x8b  0x10  Code  Gb  lcdKeypad.o [1]
+counter                 0x2000'001c   0x4  Data  Gb  lcdKeypad.o [1]
+delayMs                        0x41  0x1e  Code  Gb  lcdKeypad.o [1]
+delayUs                        0x5f  0x16  Code  Gb  lcdKeypad.o [1]
+exit                          0x5cf   0x4  Code  Gb  exit.o [2]
+getKey                        0x241  0xb4  Code  Gb  lcdKeypad.o [1]
+init                          0x165  0xc2  Code  Gb  lcdKeypad.o [1]
+input                   0x2000'0000   0x4  Data  Gb  lcdKeypad.o [1]
+lightOn                       0x2f5  0x56  Code  Gb  lcdKeypad.o [1]
+main                          0x4e9  0x40  Code  Gb  main.o [1]
+pass                    0x2000'0004   0x4  Data  Gb  lcdKeypad.o [1]
+reset                          0x75  0x16  Code  Gb  lcdKeypad.o [1]
+showmessage                   0x419  0x4c  Code  Gb  lcdKeypad.o [1]
+welcome                 0x2000'0014   0x8  Data  Gb  lcdKeypad.o [1]
+wrong                   0x2000'0008   0xc  Data  Gb  lcdKeypad.o [1]
+
+
+[1] = D:\Semester 7\Micro\labs\KeypadLcd\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  1'480 bytes of readonly  code memory
+     72 bytes of readonly  data memory
+  4'128 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
