@@ -3,7 +3,7 @@
 #include "ESP8266WiFi.h"
 #include <FirebaseArduino.h>
 
-// Set these to run example.
+// Removed My Real Data for Security
 #define FIREBASE_HOST "xxxxxx.firebaseio.com"
 #define FIREBASE_AUTH "mssjdbajdbaldnkklajdjlajd"
 #define WIFI_SSID "msalmfs"
