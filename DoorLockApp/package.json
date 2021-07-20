@@ -14,7 +14,7 @@
     "jetifier": "^1.6.5",
     "jshint": "^2.10.3",
     "react": "16.9.0",
-    "react-native": "0.61.2",
+    "react-native": "0.62.3",
     "react-native-elements": "^1.2.7",
     "react-native-firebase": "^5.5.6",
     "react-native-flash-message": "^0.1.15",
